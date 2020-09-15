@@ -14,7 +14,22 @@ export class AppComponent {
     this.todos.push(new Todo(1, 'Terminar o curso de Angular', false));
     this.todos.push(new Todo(2, 'Terminar o curso de .Net', false));
     this.todos.push(new Todo(3, 'Iniciar as aulas de Clean Architecture Flutterando', false));
-    this.todos.push(new Todo(4, 'Cortar o cabelo', false));
-  }
+    this.todos.push(new Todo(4, 'Cortar o cabelo', true));
+  };
+
+  remove(todo: Todo) {
+    const index = this.todos.indexOf(todo);
+    if (index !== -1) {
+      this.todos.splice(index, 1);
+    }
+  };
+
+  markAsDone(todo: Todo) {
+
+  };
+
+  markAsUndone(todo: Todo) {
+
+  };
 
 }
