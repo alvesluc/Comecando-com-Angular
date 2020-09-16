@@ -8,12 +8,11 @@ import { Todo } from "src/models/todo.model";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  public mode: String = 'list';
   public todos: Todo[] = [];
   public title: String = "My tasks";
 
   public form: FormGroup;
-
-
 
   constructor(private fb: FormBuilder) {
     this.form = this.fb.group({
@@ -64,6 +63,14 @@ export class AppComponent {
 
   load() {
     const data = localStorage.getItem('todos');
-    this.todos = JSON.parse(data);
+    if (data) {
+      this.todos = JSON.parse(data);
+    } else {
+      this.todos = [];
+    }
+  }
+
+  changeMode(mode: String) {
+    this.mode = mode;
   }
 }
